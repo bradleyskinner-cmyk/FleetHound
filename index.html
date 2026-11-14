@@ -1,0 +1,385 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+ content="width=device-width, initial-scale=1">
+<title>FleetHound | Equipment Management</title>
+
+<style>
+:root {
+  --bg: #101114;
+  --panel: #1c1e23;
+  --orange: #e87524;
+  --text: #f5f5f5;
+  --muted: #a4a6ad;
+  --border: #34363c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background: #17191d;
+  border-bottom: 2px solid var(--orange);
+  padding: 22px;
+  text-align: center;
+}
+
+.logo {
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.logo span {
+  color: var(--orange);
+}
+
+.tagline {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 8px;
+  letter-spacing: 2px;
+}
+
+.container {
+  max-width: 1050px;
+  margin: auto;
+  padding: 24px 16px;
+}
+
+.card {
+  background: var(--panel);
+  padding: 24px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  margin-bottom: 20px;
+}
+
+h1, h2, h3 {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 28px;
+}
+
+h2 {
+  color: var(--orange);
+}
+
+p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+input {
+  width: 100%;
+  padding: 15px;
+  margin: 9px 0;
+  border-radius: 8px;
+  border: 1px solid #45474d;
+  background: #111216;
+  color: white;
+  font-size: 16px;
+}
+
+button {
+  background: var(--orange);
+  color: #111;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  padding: 15px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:active {
+  opacity: .8;
+}
+
+.full {
+  width: 100%;
+  margin-top: 12px;
+}
+
+.secondary {
+  background: #303238;
+  color: white;
+}
+
+.hidden {
+  display: none;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.stat {
+  background: #24262c;
+  padding: 20px 12px;
+  text-align: center;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.number {
+  font-size: 32px;
+  color: var(--orange);
+  font-weight: bold;
+}
+
+.stat-label {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+.menu button {
+  width: 100%;
+  margin: 7px 0;
+  text-align: left;
+  background: #292b31;
+  color: white;
+  border: 1px solid var(--border);
+}
+
+.menu button:hover {
+  border-color: var(--orange);
+}
+
+.notice {
+  background: #33251b;
+  color: #ffb97b;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  margin-top: 16px;
+}
+
+footer {
+  text-align: center;
+  padding: 30px 15px;
+  color: #777;
+  font-size: 12px;
+}
+
+@media(min-width: 700px) {
+  .stats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .login-card {
+    max-width: 460px;
+    margin: 40px auto;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    FLEET<span>HOUND</span>
+  </div>
+  <div class="tagline">
+    TRACK IT. CHECK IT. PROTECT IT.
+  </div>
+</header>
+
+<main class="container">
+
+  <section id="login" class="card login-card">
+    <h1>Welcome to FleetHound</h1>
+
+    <p>
+      Smarter equipment inspections,
+      maintenance tracking, and fleet
+      management in one place.
+    </p>
+
+    <h2>Employee Login</h2>
+
+    <form id="loginForm">
+      <input
+        type="email"
+        placeholder="Email address"
+        autocomplete="email"
+        required>
+
+      <input
+        type="password"
+        placeholder="Password"
+        autocomplete="current-password"
+        required>
+
+      <button class="full" type="submit">
+        Sign In
+      </button>
+    </form>
+
+    <button
+      class="full secondary"
+      type="button"
+      onclick="showMessage()">
+      Register Your Company
+    </button>
+
+    <div class="notice">
+      Website preview only.
+      Real account registration and login
+      will be connected to Supabase next.
+    </div>
+  </section>
+
+  <section id="dashboard" class="hidden">
+
+    <h1>Management Dashboard</h1>
+    <p>Fleet overview and inspection activity</p>
+
+    <div class="stats">
+
+      <div class="stat">
+        <div class="number">24</div>
+        <div class="stat-label">
+          Total Equipment
+        </div>
+      </div>
+
+      <div class="stat">
+        <div class="number">18</div>
+        <div class="stat-label">
+          Inspected Today
+        </div>
+      </div>
+
+      <div class="stat">
+        <div class="number">3</div>
+        <div class="stat-label">
+          Needs Attention
+        </div>
+      </div>
+
+      <div class="stat">
+        <div class="number">2</div>
+        <div class="stat-label">
+          Out of Service
+        </div>
+      </div>
+
+    </div>
+
+    <div class="card">
+      <h2>Fleet Management</h2>
+
+      <div class="menu">
+        <button onclick="demoMessage()">
+          Equipment Inventory
+        </button>
+
+        <button onclick="demoMessage()">
+          Daily Inspections
+        </button>
+
+        <button onclick="demoMessage()">
+          Maintenance Reports
+        </button>
+
+        <button onclick="demoMessage()">
+          Employee Management
+        </button>
+
+        <button onclick="demoMessage()">
+          QR Code Scanner
+        </button>
+      </div>
+    </div>
+
+    <button class="full secondary"
+      onclick="showLogin()">
+      Back to Login
+    </button>
+
+  </section>
+
+  <section class="card">
+    <h2>Built for the Field</h2>
+    <p>
+      From scissor lifts and excavators
+      to work trucks and heavy machinery,
+      FleetHound keeps your equipment
+      records organized and accessible.
+    </p>
+
+    <button class="full secondary"
+      onclick="showDemo()">
+      Preview Management Dashboard
+    </button>
+  </section>
+
+</main>
+
+<footer>
+  FleetHound &copy; 2026
+  <br>
+  Equipment Management Made Simple
+</footer>
+
+<script>
+const login = document.getElementById("login");
+const dashboard = document.getElementById("dashboard");
+
+document.getElementById("loginForm")
+  .addEventListener("submit", function(event) {
+    event.preventDefault();
+    alert(
+      "Secure login is coming next. " +
+      "This preview does not authenticate users."
+    );
+  });
+
+function showDemo() {
+  login.classList.add("hidden");
+  dashboard.classList.remove("hidden");
+  dashboard.scrollIntoView();
+}
+
+function showLogin() {
+  dashboard.classList.add("hidden");
+  login.classList.remove("hidden");
+  window.scrollTo(0, 0);
+}
+
+function showMessage() {
+  alert(
+    "Company registration will be " +
+    "available after Supabase is connected."
+  );
+}
+
+function demoMessage() {
+  alert(
+    "This feature will be connected " +
+    "to the FleetHound database soon."
+  );
+}
+</script>
+
+</body>
+</html>
